@@ -23,8 +23,8 @@ var (
 )
 
 func main() {
-	urlFile := flag.String("urls", "/etc/certwatcher/urls.csv", "path to CSV containing list of URLs to monitor")
-	iniFile := flag.String("config", "/etc/certwatcher/config.ini", "path to config.ini")
+	urlFile := flag.String("urls", "./urls.csv", "path to CSV containing list of URLs to monitor")
+	iniFile := flag.String("config", "./config.ini", "path to config.ini")
 	days := flag.Int("days", 30, "number of days before triggering alert")
 	verbose := flag.Bool("v", false, "verbose output")
 

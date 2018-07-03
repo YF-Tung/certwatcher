@@ -1,6 +1,6 @@
-MAINTAINER := Ad Hoc Ops <ops@adhocteam.us>
+MAINTAINER := Yu-Fan Tung <https://github.com/YF-Tung>
 VERSION_STRING ?= $(shell git describe --tags --long --dirty --always)
-BUILD_DIR := $(TMPDIR)$(APPNAME)-build
+BUILD_DIR := build
 APPNAME=certwatcher
 
 .PHONY: rpm clean
@@ -17,5 +17,7 @@ rpm: buildlinux
 		-C $(BUILD_DIR) \
 		./$(APPNAME)=/usr/bin/$(APPNAME) ./config.ini.example=/etc/certwatcher/config.ini.example
 
+run:	buildlinux
+	$(BUILD_DIR)/$(APPNAME)
 clean:
 	rm -f *.rpm certwatcher
