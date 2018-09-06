@@ -43,7 +43,7 @@ func main() {
 	}
 
 	rdr := csv.NewReader(f)
-	rdr.FieldsPerRecord = 2
+	rdr.FieldsPerRecord = -1  // Don't check field number
 	rdr.Comment = '#'
 	records, err := rdr.ReadAll()
 	if err != nil {
@@ -52,9 +52,9 @@ func main() {
 
 	var wg sync.WaitGroup
 	for _, r := range records {
-		host, desc := r[0], r[1]
-		if desc == "" {
-			desc = host
+		host, desc := r[0], r[0]
+		if len(r) > 1 {
+			desc = r[1]
 		}
 
 		wg.Add(1)
