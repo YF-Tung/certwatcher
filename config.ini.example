@@ -1,9 +1,9 @@
 [certwatcher]
-username=
-password=
-host=
-port=
-rcpt=
+username=YourGoogleAccount@gmail.com
+password=PlainTextPassword
+host=smtp.gmail.com
+port=587
+rcpt=SomeMailAddress@gmail.com
 from=certwatcher
 subjectprefix="[certwatcher]"
-sendmail=
+sendmail=true
